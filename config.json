@@ -3,4 +3,12 @@
     "subTitle":"关于服务器的一切都可以在这里找到",
     "avatarUrl":"https://avatars.githubusercontent.com/u/215689515?v=4",
     "GMEEK_VERSION":"last"
+    "utterances": {
+    "enable": true,
+    "repo": "wehappyserver/wehappyserver.github.io",
+    "issue_term": "pathname",         
+    "theme": "github-light"           
+    }
 }
+
+
