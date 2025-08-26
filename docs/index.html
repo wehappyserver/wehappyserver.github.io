@@ -1,209 +1,525 @@
 <!DOCTYPE html>
-<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<html lang="zh-CN">
 <head>
-    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
-    
-    <link rel="icon" href="https://avatars.githubusercontent.com/u/215689515?v=4"><script>
-        let theme = localStorage.getItem("meek_theme") || "light";
-        document.documentElement.setAttribute("data-color-mode", theme);
-    </script>
-<meta name="description" content="关于服务器的一切都可以在这里找到">
-<meta property="og:title" content="众乐工坊|wehappyserver服务器官网">
-<meta property="og:description" content="关于服务器的一切都可以在这里找到">
-<meta property="og:type" content="blog">
-<meta property="og:url" content="https://wehappyserver.github.io">
-<meta property="og:image" content="https://avatars.githubusercontent.com/u/215689515?v=4">
-<title>众乐工坊|wehappyserver服务器官网</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>众乐工坊|we happy server官方网站</title>
+    <link rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        :root {
+            --mc-green: #3b8526;
+            --mc-dark-green: #2c5c1d;
+            --mc-brown: #8e6b3f;
+            --mc-dark-brown: #5d4a2a;
+            --mc-gray: #3d3d3d;
+            --mc-light-gray: #6e6e6e;
+            --mc-black: #1d1d1d;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23232323" width="100" height="100"/><path fill="%232c2c2c" d="M0 0h50v50H0z"/></svg>');
+            background-size: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(to bottom, var(--mc-dark-green), var(--mc-black));
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+            .logo img {
+                height: 50px;
+                width: auto;
+            }
+
+            .logo h1 {
+                font-size: 1.8rem;
+                color: white;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1.1rem;
+                padding: 8px 15px;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+            }
+
+                .nav-links a:hover {
+                    background-color: var(--mc-green);
+                    transform: translateY(-2px);
+                }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+            url("https://avatars.githubusercontent.com/u/215689515?v=4");
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--mc-green);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--mc-dark-green);
+            box-shadow: 0 4px 0 var(--mc-dark-green);
+        }
+
+            .btn:hover {
+                background-color: var(--mc-dark-green);
+                transform: translateY(4px);
+                box-shadow: 0 0 0 var(--mc-dark-green);
+            }
+
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+                color: white;
+                display: inline-block;
+                padding: 0 20px;
+                background-color: var(--mc-black);
+                position: relative;
+                z-index: 1;
+            }
+
+            .section-title::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(to right, transparent, var(--mc-green), transparent);
+                z-index: 0;
+            }
+
+        .features {
+            padding: 60px 0;
+            background-color: rgba(40, 40, 40, 0.8);
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: linear-gradient(145deg, #2a2a2a, #252525);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .feature-card i {
+                font-size: 3rem;
+                color: var(--mc-green);
+                margin-bottom: 20px;
+            }
+
+            .feature-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                color: white;
+            }
+
+        .server-info {
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .server-status {
+            background-color: rgba(40, 40, 40, 0.8);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #3b8526;
+            flex-shrink: 0;
+        }
+
+        .online {
+            background-color: #3b8526;
+        }
+
+        .offline {
+            background-color: #852626;
+        }
+
+        .gallery {
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.1);
+            }
+
+        footer {
+            background: linear-gradient(to top, var(--mc-black), #0f0f0f);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: white;
+            border-bottom: 2px solid var(--mc-green);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #b0b0b0;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .footer-section a:hover {
+                color: var(--mc-green);
+            }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+            .social-icons a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background-color: #2c2c2c;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+                .social-icons a:hover {
+                    background-color: var(--mc-green);
+                    transform: translateY(-3px);
+                }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .feature-grid, .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .pixel-divider {
+            height: 10px;
+            background: repeating-linear-gradient( 45deg, var(--mc-green), var(--mc-green) 10px, var(--mc-dark-green) 10px, var(--mc-dark-green) 20px );
+            margin: 30px 0;
+            border: none;
+        }
+
+        .minecraft-button {
+            background: linear-gradient(to bottom, #6e6e6e, #3d3d3d);
+            border: 2px solid #2c2c2c;
+            color: white;
+            padding: 10px 20px;
+            font-family: 'Minecraft', monospace;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            box-shadow: 0 4px 0 #2c2c2c;
+        }
+
+            .minecraft-button:hover {
+                transform: translateY(4px);
+                box-shadow: 0 0 0 #2c2c2c;
+            }
+    </style>
 </head>
-<style>
-body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
-#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
-#footer {margin-top:64px; text-align: center;font-size: small;}
-
-</style>
-
-<style>
-.avatar {transition: 0.8s;width:64px;height:64px;object-fit: cover;}
-.avatar:hover{transform: scale(1.15) rotate(360deg);}
-#header h1 a{color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;font-family:Monaco;margin-left:8px;}
-.title-right{display:flex;margin:auto 0 0 auto;}
-.title-right button{margin-right:8px;padding:16px;}
-.title-right .circle{padding: 14px 16px;}
-
-.SideNav{min-width: 360px;}
-.SideNav-icon{margin-right: 16px}
-.SideNav-item .Label{color: #fff;margin-left:4px;}
-.d-flex{min-width:0;}
-.listTitle{overflow:hidden;white-space:nowrap;text-overflow: ellipsis;max-width: 100%;}
-.listLabels{white-space:nowrap;display:flex;}
-.listLabels object{max-height:16px;max-width:24px;}
-
-@media (max-width: 600px) {
-    body {padding: 8px;}
-    .avatar {width:40px;height:40px;}
-    .blogTitle{display:none;}
-    #buttonRSS{display:none;}
-    .LabelTime{display:none;}
-}
-</style>
-
-
-
 <body>
-    <div id="header">
-<h1>
-    <img src="https://avatars.githubusercontent.com/u/215689515?v=4" class="avatar circle" id="avatarImg" alt="avatar"><a class="blogTitle">众乐工坊|wehappyserver服务器官网</a></h1>
-<div class="title-right">
-    <a href="https://wehappyserver.github.io/tag.html" id="buttonSearch" class="btn btn-invisible circle" title="搜索">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathSearch" fill-rule="evenodd"></path>
-        </svg>
-    </a>
-    
-    
-    <a href="https://wehappyserver.github.io/rss.xml" target="_blank" id="buttonRSS" class="btn btn-invisible circle" title="RSS">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathRSS" fill-rule="evenodd"></path>
-        </svg>
-    </a>
-    <a class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
-        <svg class="octicon" width="16" height="16" >
-            <path id="themeSwitch" fill-rule="evenodd"></path>
-        </svg>
-    </a>
-</div>
-</div>
-    <div id="content">
-<div style="margin-bottom: 16px;">关于服务器的一切都可以在这里找到</div>
-<nav class="SideNav border">
-<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/guan-yu-zheng-he-bao-wu-fa-an-zhuang-de-wen-ti.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">关于整合包无法安装的问题</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#d73a4a"><object><a style="color:#fff" href="tag.html#bug">bug</a></object></span><span class="Label LabelName" style="background-color:#008672"><object><a style="color:#fff" href="tag.html#help wanted">help wanted</a></object></span>
-        <span class="Label LabelTime" style="background-color:#0969da">2025-08-19</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/lian-xi-wo-men.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">联系我们</span>
-    </div>
-    <div class="listLabels">
-        <span class="Label" style="background-color:#006b75">2</span>
-        <span class="Label LabelName" style="background-color:#008672"><object><a style="color:#fff" href="tag.html#help wanted">help wanted</a></object></span>
-        <span class="Label LabelTime" style="background-color:#0969da">2025-08-18</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/kuai-lai-she-ji-fu-wu-qi-yuan-chuang-jian-zhu.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">快来设计服务器原创建筑</span>
-    </div>
-    <div class="listLabels">
-        <span class="Label" style="background-color:#006b75">1</span>
-        <span class="Label LabelName" style="background-color:#d73a4a"><object><a style="color:#fff" href="tag.html#bug">bug</a></object></span>
-        <span class="Label LabelTime" style="background-color:#0969da">2025-08-18</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/yu-ji-jiang-hui-zai-1.0.6-ban-ben-shan-chu-zhuo-yue-qian-xian-%28-shi-ji-ye-bu-yi-ding-%EF%BC%89.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">预计将会在1.0.6版本删除卓越前线(实际也不一定）</span>
-    </div>
-    <div class="listLabels">
-        <span class="Label" style="background-color:#006b75">2</span>
-        <span class="Label LabelName" style="background-color:#d73a4a"><object><a style="color:#fff" href="tag.html#bug">bug</a></object></span>
-        <span class="Label LabelTime" style="background-color:#0969da">2025-08-18</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/zheng-he-bao-xia-zai.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">整合包下载</span>
-    </div>
-    <div class="listLabels">
-        <span class="Label" style="background-color:#006b75">4</span>
-        <span class="Label LabelName" style="background-color:#0075ca"><object><a style="color:#fff" href="tag.html#documentation">documentation</a></object></span>
-        <span class="Label LabelTime" style="background-color:#0969da">2025-08-17</span>
-    </div>
-</a>
-</nav>
-</div>
-    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://wehappyserver.github.io">众乐工坊|wehappyserver服务器官网</a></div>
-<div id="footer2">
-    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
-</div>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>众乐工坊|WeHappy服务器</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">首页</a>
+                    <a href="#about">服务器信息</a>
+                    <a href="#features">服务器资源</a>
+                    <a href="#gallery">公告栏</a>
+                    <a href="#join">立刻开玩!</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>欢迎来到we happy服务器</h2>
+                <p>建造 · 养老 · 机械</p>
+                <a href="#join" class="btn">立即开玩!</a>
+            </div>
+        </div>
+    </section>
 
-<script>
-var now=new Date();
-document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+    <div class="container">
+        <section class="features" id="features">
+            <div class="section-title">
+                <h2>服务器资源</h2>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-download"></i>
+                    <h3>下载整合包</h3>
+                    <p>获取我们精心准备的游戏整合包，包含优化和必备模组</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>深入交流</h3>
+                    <p>加入我们的QQ群对服主进行亲切的问候</p>
+                    <p>QQ群号:705273930</p>
+                    <p>我们设置了进群审核,在问答中回答"机械动力"即可等待管理员审核进群</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>反馈问题/举报玩家</h3>
+                    <p>服务器官方邮箱:zlgf_whs@163.com</p>
+                    <p>服主邮箱(请勿大量反馈至服主邮箱,建议反馈至服务器官方邮箱):shitou20130211@163.com</p>
+                </div>
+            </div>
+        </section>
 
-if(""!=""){
-    var startSite=new Date("");
-    var diff=now.getTime()-startSite.getTime();
-    var diffDay=Math.floor(diff/(1000*60*60*24));
-    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
-}
-</script></div>
+        <hr class="pixel-divider">
+
+        <section class="server-info" id="about">
+            <div class="section-title">
+                <h2>服务器信息</h2>
+            </div>
+            <p>欢迎来到众乐工坊服务器！公网服于2025年4月正式开机，是一个一机械动力为中心的Minecraft服务器。希望你们玩的开心。</p>
+            <p>新服开荒，有问题请及时反馈，以免影响游戏体验(小声嘀咕我们还在鸽一个名为WH-ACS的反作弊项目)</p>
+        </section>
+
+        <hr class="pixel-divider">
+        <section class="gallery" id="gallery">
+            <div class="section-title">
+                <h2>公告栏</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <h3>写点啥呢</h3>
+                    <p>暂时没写好qwq</p>
+                </div>
+                <div class="gallery-item">
+                    <h3>服务器宣传片</h3>
+                    <p>bilibili搜索BV1rDYhzsEGF(BV号)</p>
+                    <p>宣传片by Mace778</p>
+                </div>
+                <div class="gallery-item">
+                    <h3>黑名单</h3>
+                    <p>被列在黑名单上的玩家将被暂时禁止进入服务器以改善游戏环境</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="pixel-divider">
+
+        <section class="join-us" id="join">
+            <div class="section-title">
+                <h2>立刻开玩!</h2>
+            </div>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <p>若要开始游戏，请复制服务器地址并在下载下来的整合包的"多人游戏"中连接！</p>
+                <p style="margin: 20px 0;">
+                    <strong style="background-color: var(--mc-gray); padding: 10px 20px; border-radius: 5px; font-family: monospace;">game.wehappyserver.xyz</strong>
+                </p>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <p>服务器邮箱:zlgf_whs@163.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>此处应该有个备案号...</p>
+                <p>网站by 指南针嘻嘻</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const firstFeatureCard = document.querySelector('.feature-card');
+            if (firstFeatureCard) {
+                firstFeatureCard.innerHTML = `
+                    <i class="fas fa-download"></i>
+                    <h3>下载整合包</h3>
+                    <p>获取我们精心准备的游戏整合包，包含优化和必备的模组</p>
+                    <p>提取码:25lm(请下载最新版的整合包,否则有可能进不了服务器)<p>
+                    <button class="minecraft-button download-btn">立即下载</button>
+                    <p>也可以去下面的链接获取另一个服务器成员自制整合包,包含更多优化与实用模组,同时可以正常游玩服务器</p>
+                    <p>https://github.com/Mace778/wehappyserver-history</p>`
+            const downloadBtn = firstFeatureCard.querySelector('.download-btn');
+                downloadBtn.addEventListener('click', function () {
+                    window.open('https://wwsq.lanzoue.com/b014wlo0hg', '_blank');
+                });
+            }
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-<script>
-var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z'};
-var utterancesLoad=0;
-
-let themeSettings={
-    "dark": ["dark","moon","#00f0ff","dark-blue"],
-    "light": ["light","sun","#ff5000","github-light"],
-    "auto": ["auto","sync","","preferred-color-scheme"]
-};
-function changeTheme(mode, icon, color, utheme){
-    document.documentElement.setAttribute("data-color-mode",mode);
-    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
-    document.getElementById("themeSwitch").parentNode.style.color=color;
-    if(utterancesLoad==1){utterancesTheme(utheme);}
-}
-function modeSwitch(){
-    let currentMode=document.documentElement.getAttribute('data-color-mode');
-    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
-    localStorage.setItem("meek_theme", newMode);
-    if(themeSettings[newMode]){
-        changeTheme(...themeSettings[newMode]);
-    }
-}
-function utterancesTheme(theme){
-    const message={type:'set-theme',theme: theme};
-    const iframe=document.getElementsByClassName('utterances-frame')[0];
-    iframe.contentWindow.postMessage(message,'https://utteranc.es');
-}
-if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
-console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
-</script>
-
-<script>
-document.getElementById("pathSearch").setAttribute("d",IconList["search"]);
-document.getElementById("pathRSS").setAttribute("d",IconList["rss"]);
-iconTOP=document.getElementsByClassName("svgTop1");
-iconPost=document.getElementsByClassName("svgTop0");
-for(var i=0;i<iconTOP.length;i++){
-    iconTOP[i].setAttribute("d",IconList["upload"]);
-    iconTOP[i].parentNode.style.color="red";
-}
-for(var i=0;i<iconPost.length;i++){
-    iconPost[i].setAttribute("d",IconList["post"]);
-}
-
-
-
-
-</script>
-
-
 </html>
